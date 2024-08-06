@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import {useEffect, useState} from 'react'
 import { Resizable } from "re-resizable";
 import AceEditor from 'react-ace'
 
@@ -39,8 +39,39 @@ function CodeEditor({
     background,
     currentPadding
 }: CodeEditorProps) {
+
+  const [width, setWidth] = useState(1000)
+  const [height, setHeight] = useState<number | null>(500)
+
+  // ts ignore
+  const handleResize = (evt, direction, ref, pos) => {
+    const newSize = ref.style.height
+    setHeight(parseInt(newSize))
+  }
+
+  const updateSize = () => {
+    setWidth(window.innerWidth)
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize" , updateSize)
+    updateSize()
+    return () => window.removeEventListener("resize" , updateSize)
+  },[])
+
   return (
-    <Resizable minHeight={466} minWidth={510} maxHeight={1000}>
+    <Resizable 
+    minHeight={466} 
+    minWidth={510} 
+    maxHeight={1000} 
+    defaultSize=
+    {{
+        width: width ,
+        height: height || 500
+    }}
+    onResize={handleResize}
+    className='resize-container relative'
+    style={{backgroundColor:"red"}}>
       <div>
         <AceEditor 
         value = "function() {return 'Hello Word'; }" 
