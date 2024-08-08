@@ -70,9 +70,24 @@ function CodeEditor({
         height: height || 500
     }}
     onResize={handleResize}
-    className='resize-container relative'
-    style={{backgroundColor:"red"}}>
-      <div>
+    className='resize-container relative'>
+
+      <div className="code-block">
+        <div className="code-title h-[52px] px-4 flex items-center justify-between bg-black bg-opacity-80">
+          <div className="dots flex items-center gap-1">
+            <div className='w-3 h-3 rounded-full bg-[#ff5656]'></div>
+            <div className='w-3 h-3 rounded-full bg-[#ffbc6a]'></div>
+            <div className='w-3 h-3 rounded-full bg-[#67f772]'></div>
+          </div>
+
+          <div className="input-control w-full">
+            <input type="text" className='w-full text-[hsla(0,0%,100%,0.6)] outline-none font-medium text-center bg-transparent' />
+          </div>
+
+          <div className="icon flex justify-center items-center bg-black p-1 bg-opacity-30 rounded-sm">
+            <img src={icon} alt="" />
+          </div>
+        </div>
         <AceEditor 
         value = "function() {return 'Hello Word'; }" 
         fontSize = {16} 
