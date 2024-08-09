@@ -1,30 +1,30 @@
 export const languages = [
     {
         name: "JavaScript",
-        icons: "icons/javascript.svg" 
+        icon: "icons/javascript.svg" 
     },
     {
         name: "HTML",
-        icons: "icons/html.svg" 
+        icon: "icons/html.svg" 
     },
     {
         name: "CSS",
-        icons: "icons/css.svg" 
+        icon: "icons/css.svg" 
     },
     {
         name: "Python",
-        icons: "icons/python.svg" 
+        icon: "icons/python.svg" 
     },
     {
         name: "Java",
-        icons: "icons/java.svg" 
+        icon: "icons/java.svg" 
     },
     {
         name: "TavaScript",
-        icons: "icons/tavascript.svg" 
+        icon: "icons/tavascript.svg" 
     },
     {
         name: "JSON",
-        icons: "icons/json.svg" 
+        icon: "icons/json.svg" 
     },
 ]

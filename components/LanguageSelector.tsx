@@ -2,10 +2,20 @@
 
 import React from 'react'
 
-function LanguageSelector() {
+interface LanguageSelectorProps{
+  language : string;
+  setLanguage : (language : string) => void
+  setActiveIcon : (icon : string) => void
+}
+
+function LanguageSelector({
+  language,
+  setLanguage,
+  setActiveIcon
+}) {
   return (
     <div>
-      LanguageSelector
+      <p>Language</p>
     </div>
   )
 }
