@@ -92,7 +92,7 @@ function CodeEditor({
         value = "function() {return 'Hello Word'; }" 
         fontSize = {16} 
         name = "UNIQUE_ID_OF_DIV"
-        theme='monokai'
+        theme={theme}
         mode={language.toLowerCase()}
         showGutter = {false} 
         wrapEnabled = {true}

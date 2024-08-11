@@ -20,7 +20,7 @@ export const languages = [
         icon: "icons/java.svg" 
     },
     {
-        name: "TavaScript",
+        name: "TypeScript",
         icon: "icons/tavascript.svg" 
     },
     {
@@ -28,3 +28,5 @@ export const languages = [
         icon: "icons/json.svg" 
     },
 ]
+
+export const themes = ["monokai", "twilight", "terminal", "solarized_dark"];

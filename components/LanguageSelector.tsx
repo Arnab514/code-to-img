@@ -1,8 +1,8 @@
 "use client"
 
+import React from 'react'
+import Dropdown from '@/utils/dropdown';
 import { languages } from '@/utils/utilities';
-import { ChevronDown } from 'lucide-react';
-import React, { useState } from 'react'
 
 interface LanguageSelectorProps{
   language : string;
@@ -14,13 +14,7 @@ function LanguageSelector({
   language,
   setLanguage,
   setActiveIcon
-}) {
-
-  const [showDropdown, setShowDropdown] = useState(false)
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown)
-  }
+} : LanguageSelectorProps) {
 
   const handleLanguageChange = (newLanguage : string) => {
     setLanguage(newLanguage)
@@ -33,26 +27,44 @@ function LanguageSelector({
   }
 
 
-  return (
-    <div onClick = {toggleDropdown}>
+  return(
+    <div>
       <p className = 'py-[5px] text-sm font-medium'>Language</p>
-      <div className = 'dropdown-title capitalize w-[120px]'>
-        {language}
-        <ChevronDown/> 
-      </div>
-      {showDropdown && 
-        <div className = 'dropdown-menu'>
-          {languages.map((lang , index) => {
-            return <div key = {index}>
-              <button className = 'dropdown-item w-[120px] top-[74px] text-left' onClick = {() => handleLanguageChange(lang.name)}>
-                {lang.name}
-              </button>
-            </div>
-          })}
-        </div>
-      }
+      <Dropdown options={languages.map((lang) => lang.name)} selectedOption={language} onOptionSelect={handleLanguageChange} />
     </div>
   )
+
 }
 
 export default LanguageSelector
+
+
+  // This code is when you use dropdown here 
+
+  // const [showDropdown, setShowDropdown] = useState(false)
+
+  // const toggleDropdown = () => {
+  //   setShowDropdown(!showDropdown)
+  // }
+
+
+  // return (
+  //   <div onClick = {toggleDropdown}>
+  //     <p className = 'py-[5px] text-sm font-medium'>Language</p>
+  //     <div className = 'dropdown-title capitalize w-[120px]'>
+  //       {language}
+  //       <ChevronDown/> 
+  //     </div>
+  //     {showDropdown && 
+  //       <div className = 'dropdown-menu w-[120px] top-[94px]'>
+  //         {languages.map((lang , index) => {
+  //           return <div key = {index}>
+  //             <button className = 'dropdown-item text-left' onClick = {() => handleLanguageChange(lang.name)}>
+  //               {lang.name}
+  //             </button>
+  //           </div>
+  //         })}
+  //       </div>
+  //     }
+  //   </div>
+  // )
