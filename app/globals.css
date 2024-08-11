@@ -44,3 +44,15 @@ body{
   width: 100% !important;
 }
 
+.dropdown-title{
+  padding: 0.25rem 0.3rem 0.3rem 0.5rem;
+  height: 37px;
+  border-radius: 3px;
+  border: 1px solid rgba(249, 249, 249, 0.08);
+
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
