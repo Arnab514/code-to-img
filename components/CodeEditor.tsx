@@ -70,7 +70,8 @@ function CodeEditor({
         height: height || 500
     }}
     onResize={handleResize}
-    className='resize-container relative'>
+    className='resize-container relative'
+    style = {{background : background}}>
 
       <div className="code-block">
         <div className="code-title h-[52px] px-4 flex items-center justify-between bg-black bg-opacity-80">

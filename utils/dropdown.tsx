@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import OutsideClickHandler from "react-outside-click-handler"
 
 interface DropdownProps {
   options: string[];
@@ -17,6 +18,7 @@ function Dropdown({ options, selectedOption, onOptionSelect }: DropdownProps) {
   };
 
   return (
+    <OutsideClickHandler onOutsideClick={ () => setShowDropdown(false)}>
     <div onClick={toggleDropdown}>
       <div className='dropdown-title capitalize w-[120px]'>
         {selectedOption}
@@ -37,6 +39,7 @@ function Dropdown({ options, selectedOption, onOptionSelect }: DropdownProps) {
         </div>
       )}
     </div>
+    </OutsideClickHandler>
   );
 }
 
