@@ -19,10 +19,10 @@ import 'ace-builds/src-noconflict/theme-monokai'
 import 'ace-builds/src-noconflict/theme-terminal'
 import 'ace-builds/src-noconflict/theme-twilight'
 import 'ace-builds/src-noconflict/theme-solarized_dark'
+import { initialCode } from '@/utils/utilities';
 
 
 interface CodeEditorProps{
-    onCodeChange: (code: string) => void;
     language: string;
     theme: string;
     icon: string;
@@ -32,7 +32,6 @@ interface CodeEditorProps{
 }
 
 function CodeEditor({
-    onCodeChange,
     language,
     theme,
     icon,
@@ -42,11 +41,17 @@ function CodeEditor({
 
   const [width, setWidth] = useState(1000)
   const [height, setHeight] = useState<number | null>(500)
+  const [title , setTitle] = useState("Untitled-1")
+  const [code , setCode] = useState(initialCode)
+
+  const handleCodeChange = (newCode: string) => {
+    setCode(newCode)
+  }
 
   // ts ignore
   const handleResize = (evt, direction, ref, pos) => {
     const newSize = ref.style.height
-    setHeight(parseInt(newSize))
+    setHeight(parseInt(newSize , 10))
   }
 
   const updateSize = () => {
@@ -82,7 +87,7 @@ function CodeEditor({
           </div>
 
           <div className="input-control w-full">
-            <input type="text" className='w-full text-[hsla(0,0%,100%,0.6)] outline-none font-medium text-center bg-transparent' />
+            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className='w-full text-[hsla(0,0%,100%,0.6)] outline-none font-medium text-center bg-transparent' />
           </div>
 
           <div className="icon flex justify-center items-center bg-black p-1 bg-opacity-30 rounded-sm">
@@ -90,17 +95,19 @@ function CodeEditor({
           </div>
         </div>
         <AceEditor 
-        value = "function() {return 'Hello Word'; }" 
+        value = {code}
         fontSize = {16} 
         name = "UNIQUE_ID_OF_DIV"
         theme={theme}
         mode={language.toLowerCase()}
         showGutter = {false} 
         wrapEnabled = {true}
+        height={`calc(${height}px - 2*${currentPadding} - 52px)`}
         showPrintMargin = {false}
         highlightActiveLine={false}
         editorProps = {{ $blockScrolling: true }}
-        className='ace-editor-container'/>
+        className='ace-editor-container'
+        onChange = {handleCodeChange}/>
       </div>                      
     </Resizable>
   )

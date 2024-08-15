@@ -19,8 +19,10 @@ function PaddingSelector({paddings, currentPadding, setCurrentPadding}: PaddingS
       <p className = 'py-[5px] text-sm font-medium'>Padding Selector</p>
       <div className='flex gap-6'>
         {paddings.map((padding, index) => {
-            return <button key={index}>
-                {padding} // 1hr 56min
+            return <button key={index} onClick={() => changePadding(padding)} 
+            className= {`h-[36px] flex items-center justify-center text-sm px-2 
+            ${currentPadding === padding && "bg-[#3C3C3C] rounded-md text-white"} hover:text-white ease-linear transition-all duration-300`}>
+                {padding}
             </button>
         })}
       </div>
