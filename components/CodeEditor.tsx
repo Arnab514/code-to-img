@@ -91,7 +91,7 @@ function CodeEditor({
           </div>
 
           <div className="icon flex justify-center items-center bg-black p-1 bg-opacity-30 rounded-sm">
-            <img src={icon} alt="" />
+            <img src={icon} className='w-[33px]' alt="" />
           </div>
         </div>
         <AceEditor 

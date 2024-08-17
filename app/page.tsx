@@ -23,6 +23,8 @@ export default function Home() {
         <ThemeSelector theme={theme} setTheme = {setTheme}/>
         <BackgroundSelector background = {background} setBackground = {setBackground} />
         <PaddingSelector paddings = {paddings} currentPadding = {currentPadding} setCurrentPadding = {setCurrentPadding}/>
+        <div className="export-btn"></div>
+        {/* 2hr 17min 17sec */}
       </header>
       <div className="code-editor-ref mt-[14rem]">
         <CodeEditor language = {language} theme = {theme} icon = {activeIcon} background = {background} currentPadding = {currentPadding}/>
