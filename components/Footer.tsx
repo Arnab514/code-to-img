@@ -12,7 +12,7 @@ function Footer() {
         My Portfolio &nbsp; &#129109;
       </Link>
 
-      <Link className='text-sm font-medium hover:text-slate-200 ease-in-out transition-all duration-300 flex items-center justify-center gap-2' href="https://arnab-majumder-portfolio.netlify.app/" target='blank' >
+      <Link className='text-sm font-medium hover:text-slate-200 ease-in-out transition-all duration-300 flex items-center justify-center gap-2' href="https://www.linkedin.com/in/arnab-majumder-923ab41bb/" target='blank' >
         <Linkedin />
         <span>Linkedin Account &nbsp; &#129109;</span>
       </Link>
