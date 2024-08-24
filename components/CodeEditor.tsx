@@ -49,7 +49,7 @@ function CodeEditor({
   }
 
   // ts ignore
-  const handleResize = (evt, direction, ref, pos) => {
+  const handleResize = (evt: any , direction: any, ref:any, pos : any) => {
     const newSize = ref.style.height
     setHeight(parseInt(newSize , 10))
   }
